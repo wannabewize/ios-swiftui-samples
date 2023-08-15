@@ -34,7 +34,6 @@ struct ContentView: View {
                     print("destructive")
                 } label: {
                     Label("label title", systemImage: "trash")
-                        .imageScale(.large)
                         .labelStyle(.iconOnly)
                 }
                 
@@ -44,7 +43,15 @@ struct ContentView: View {
                     Label("cancel", systemImage: "return")
                         .labelStyle(.iconOnly)
                 }
-            }                        
+            }    
+            
+            Button(action: {
+                clicked.toggle()
+            }, label: {
+                Image(systemName: "arrow.right.circle")
+                    .imageScale(.large)
+                    .rotationEffect(.degrees(clicked ? 90 : 0))                    
+            })
         }
         .padding()
     }
